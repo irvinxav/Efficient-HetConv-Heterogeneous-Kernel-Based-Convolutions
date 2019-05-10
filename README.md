@@ -25,21 +25,19 @@ For remaining (M−M/P) kernels are of size 1×1, I use a trick here:
 I first compute the 1x1 convolution on all M input channels rather than the specific (M−M/P) kernels. Then in the second step, I make corresponding extra M/P 1x1 kernels weights to zero and masking the corresponding gradients so that extra M/P 1x1 kernels weights remains zero during backpropagations. This way we can implement original HetConv.
 
 # Experiments
-By changing "part" value in the code, you can get various results for VGG-16 on CIFAR-10 in different setups.
+By changing "part" P value in the code (hetconv.py), I reproduced the results for VGG-16 on CIFAR-10 in different setups.
 
-\begin{table}[]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Animals} & \textbf{Sports}  & \textbf{Fruits} \\ \hline
-Cat     & Soccer     & Apple  \\ \hline
-Dog     & Basketball & Orange \\ \hline
-\end{tabular}
-\end{table}
+| __Model__ | __FLOPs__ | __Acc% (Original)__ | __Acc% (Reproduced)__ |
+|-------------|------------|------------|------------|
+| VGG-16_P1   | 313.74M     | 94.06     | 94.1      |
+| VGG-16_P2   | 175.23M     | 93.89     | 93.9      |
+| VGG-16_P4   | 105.98M     | 93.93     | 93.9     |
+| VGG-16_P8   | 71.35M     | 93.92     | 93.9      |
+| VGG-16_P16   | 54.04M     | 93.96    | 93.9     |
+| VGG-16_P32   | 45.38M     | 93.73     | 93.8      |
+| VGG-16_P64   | 41.05M     | 93.42     | 93.4      |
 
 
 # Future work
-I have implemented HetConv using group wise and point wise convolution but it can also be implemented directly.
-The direct implementation of HetConv writen in CUDA will further increase the speed and efficiency. 
+I have implemented HetConv using group wise and point wise convolution, but it can also be implemented directly.
+The direct implementation of HetConv written in CUDA will further increase the speed and efficiency. 
