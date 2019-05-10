@@ -23,3 +23,23 @@ P is the part and M is the input depth (number of input channels).
 I use group convolution to compute the result of M/P kernels of size 3x3 in each filter with group=p. 
 For remaining (M−M/P) kernels are of size 1×1, I use a trick here:
 I first compute the 1x1 convolution on all M input channels rather than the specific (M−M/P) kernels. Then in the second step, I make corresponding extra M/P 1x1 kernels weights to zero and masking the corresponding gradients so that extra M/P 1x1 kernels weights remains zero during backpropagations. This way we can implement original HetConv.
+
+# Experiments
+By changing "part" value in the code, you can get various results for VGG-16 on CIFAR-10 in different setups.
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Animals} & \textbf{Sports}  & \textbf{Fruits} \\ \hline
+Cat     & Soccer     & Apple  \\ \hline
+Dog     & Basketball & Orange \\ \hline
+\end{tabular}
+\end{table}
+
+
+# Future work
+I have implemented HetConv using group wise and point wise convolution but it can also be implemented directly.
+The direct implementation of HetConv writen in CUDA will further increase the speed and efficiency. 
