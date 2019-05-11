@@ -10,7 +10,7 @@ This type of implementation can be found here<br/>
 https://github.com/sxpro/HetConvolution2d_pytorch/.<br/>
 
 But since it uses a loop structure, therefore it will slow down execution. Execution time will be more in this implementation.
-![alt text](https://github.com/irvinxav/Efficient-HetConv-Heterogeneous-Kernel-Based-Convolutions/blob/master/img/1.png)
+![alt text](https://github.com/irvinxav/Efficient-HetConv-Heterogeneous-Kernel-Based-Convolutions/blob/master/img/1.png)<br/>
 I implemented HetConv using the approach just shown above. The two implementations are the same (by reordering you can convert one to another). This type of implementation is more efficient. Discussion on the equivalence of the above two figures can be found 
 here<br/>
 
