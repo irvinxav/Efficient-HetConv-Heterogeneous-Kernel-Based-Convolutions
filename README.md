@@ -40,5 +40,10 @@ By changing "part" P value in the code (hetconv.py), I reproduced the results fo
 
 # Future work
 I have implemented HetConv using group wise and point wise convolution, but it can also be implemented directly.
-The direct implementation of HetConv written in CUDA will further increase the speed and efficiency.<br/>
-Alternatively, we can make corresponding extra M/P 1x1 kernels weights to zero in point wise convolution and then using sparse convolution for point wise convolution, also result in an improvement in practical speed further. In this types of implementation gradients masking will not be required since we are using sparse point wise convolution. 
+The direct implementation of HetConv written in CUDA will further increase the speed and efficiency.<br/><br/><br/>
+Alternatively, we can make corresponding extra M/P 1x1 kernels weights to zero in point wise convolution and then using sparse convolution for point wise convolution, also result in an improvement in practical speed further. In this types of implementation gradients masking will not be required since we are using sparse point wise convolution.<br/><br/>
+Sparse convolution:<br/>
+https://pytorch.org/docs/stable/sparse.html<br/>
+https://github.com/traveller59/spconv<br/>
+https://github.com/facebookresearch/SparseConvNet<br/>
+https://github.com/PeterTor/sparse_convolution
